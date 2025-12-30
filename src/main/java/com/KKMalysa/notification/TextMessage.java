@@ -2,10 +2,10 @@ package com.KKMalysa.notification;
 
 import com.KKMalysa.order.Order;
 
-public class TextMessage {
+public class TextMessage implements Observer {
 
-    public void updateOrderStatus(Order order) {
-        System.out.println("SMS: Zamówienie o numerze: " + order.getOrderNumber() + "zmieniło status na: "+ order.getOrderStatus());
-
-    };
+    @Override
+    public void update(Order order) {
+        System.out.println("SMS: Zamówienie o numerze: " + order.getOrderNumber() + " zmieniło status na: "+ order.getOrderStatus());
+    }
 }

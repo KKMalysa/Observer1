@@ -15,9 +15,15 @@ public class Main {
         MobileApp mobileApp = new MobileApp();
         Email email = new Email();
 
-        textMessage.updateOrderStatus(order1);
-        mobileApp.updateOrderStatus(order1);
-        email.updateOrderStatus(order1);
+        order1.registerObserver(mobileApp);
+        order1.registerObserver(email);
+        order1.registerObserver(textMessage);
+
+        order1.notifyObservers();
+        System.out.println();
+
+        order1.unregisterObserver(mobileApp);
+        order1.changeOrderStatus(OrderStatus.WYSŁANE);
     }
 
 
